@@ -64,8 +64,35 @@ function dismissToast(t) {
 }
 
 // ── Modal ─────────────────────────────────────────────────────
-function openModal(id)  { document.getElementById(id)?.classList.add('is-open');    }
-function closeModal(id) { document.getElementById(id)?.classList.remove('is-open'); }
+function openModal(id) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.classList.add('is-open');
+  // Foca o primeiro elemento focável dentro do modal
+  const focavel = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  if (focavel.length) focavel[0].focus();
+
+  // Trap de foco: Tab e Shift+Tab circulam dentro do modal
+  modal._trapFoco = function (e) {
+    if (e.key !== 'Tab') return;
+    const itens = [...modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')].filter(el => !el.disabled);
+    const primeiro = itens[0];
+    const ultimo   = itens[itens.length - 1];
+    if (e.shiftKey && document.activeElement === primeiro) {
+      e.preventDefault(); ultimo.focus();
+    } else if (!e.shiftKey && document.activeElement === ultimo) {
+      e.preventDefault(); primeiro.focus();
+    }
+  };
+  modal.addEventListener('keydown', modal._trapFoco);
+}
+
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.classList.remove('is-open');
+  if (modal._trapFoco) modal.removeEventListener('keydown', modal._trapFoco);
+}
 
 document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
   backdrop.addEventListener('click', e => {

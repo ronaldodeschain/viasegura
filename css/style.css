@@ -247,6 +247,13 @@ nav > .nav-item > a[aria-current="page"] {
   text-decoration: underline;
 }
 
+nav > a:focus-visible,
+nav > .nav-item > a:focus-visible {
+  outline: 3px solid var(--color-white);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
 /* ── Dropdown ── */
 .nav-item {
   position: relative;
@@ -343,6 +350,11 @@ nav > .nav-item > a[aria-current="page"] {
   background: var(--color-accent-dark);
 }
 
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 /* ═══════════════════════════════════════════════
    MAIN
    ═══════════════════════════════════════════════ */
@@ -434,10 +446,11 @@ main {
   transition: border-color .2s;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 1px;
   border-color: var(--color-primary);
 }
 
@@ -572,6 +585,7 @@ footer {
   flex-shrink: 0;
 }
 .alert-close:hover { opacity: 1; }
+.alert-close:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; border-radius: var(--radius-sm); }
 
 /* ═══════════════════════════════════════════════
    TOAST
@@ -632,6 +646,7 @@ footer {
   flex-shrink: 0;
 }
 .toast-close:hover { opacity: 1; }
+.toast-close:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: var(--radius-sm); }
 
 /* ═══════════════════════════════════════════════
    MODAL
@@ -690,6 +705,7 @@ footer {
   padding: 0;
 }
 .modal-close:hover { color: var(--color-text); }
+.modal-close:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
 
 .modal-body {
   padding: var(--space-6);
@@ -719,6 +735,7 @@ footer {
   transition: background 0.2s, color 0.2s;
 }
 .btn-secondary:hover { background: var(--color-bg); color: var(--color-text); }
+.btn-secondary:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
 
 /* ═══════════════════════════════════════════════
    BREAKPOINT 1 — xs: até 479px (smartphones pequenos)
