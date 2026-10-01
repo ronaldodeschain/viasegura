@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos — ViaSegura</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">🛣️ ViaSegura</a>
+    <button class="nav-toggle" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav-principal" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <div class="nav-item">
+        <a href="projetos.html" aria-current="page" aria-expanded="false" aria-haspopup="true">Projetos</a>
+        <div class="dropdown" role="menu">
+          <a href="projetos.html#ativos-titulo" role="menuitem">Projetos em andamento</a>
+          <a href="projetos.html#concluidos-titulo" role="menuitem">Projetos concluídos</a>
+          <a href="projetos.html#voluntariado-titulo" role="menuitem">Como se voluntariar</a>
+          <a href="projetos.html#doacao-titulo" role="menuitem">Campanhas de doação</a>
+          <a href="projetos.html#faq-titulo" role="menuitem">Perguntas frequentes</a>
+        </div>
+      </div>
+      <a href="cadastro.html">Seja Voluntário</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Projetos e Iniciativas</h1>
+    <p>Conheça nossas frentes de atuação, saiba como se voluntariar e veja como sua doação transforma ruas em espaços mais seguros.</p>
+  </section>
+
+  <main>
+
+    <section aria-labelledby="ativos-titulo">
+      <h2 class="section-title" id="ativos-titulo">Projetos em andamento</h2>
+      <div class="cards">
+        <article class="card"><span class="tag">Mapeamento</span><h3>Mapa Vivo</h3><p>Voluntários percorrem bairros semanalmente registrando buracos e irregularidades no asfalto com geolocalização e foto.</p></article>
+        <article class="card"><span class="tag">Infraestrutura elétrica</span><h3>Fio no Chão, Perigo Real</h3><p>Identificação e reporte emergencial de fios elétricos caídos em vias públicas, com acionamento direto da concessionária de energia.</p></article>
+        <article class="card"><span class="tag">Educação</span><h3>Olho na Rua</h3><p>Oficinas em escolas e centros comunitários ensinando cidadãos a identificar riscos urbanos e acionar os canais corretos de denúncia.</p></article>
+        <article class="card"><span class="tag">Pressão institucional</span><h3>Prazo Cumprido</h3><p>Monitoramento dos prazos legais de reparo após abertura de chamados. Quando descumpridos, acionamos o Ministério Público.</p></article>
+        <article class="card"><span class="tag">Tecnologia</span><h3>API Cidadã</h3><p>Desenvolvimento de integração aberta entre nosso banco de dados de ocorrências e os sistemas de ouvidoria das prefeituras parceiras.</p></article>
+        <article class="card"><span class="tag">Comunidade</span><h3>Adote uma Quadra</h3><p>Moradores assumem a responsabilidade de monitorar e reportar problemas em uma quadra específica do seu bairro mensalmente.</p></article>
+      </div>
+    </section>
+
+    <section aria-labelledby="concluidos-titulo" style="margin-top: 48px;">
+      <h2 class="section-title" id="concluidos-titulo">Projetos concluídos</h2>
+      <div class="cards">
+        <article class="card"><span class="tag">Concluído</span><h3>Operação Asfalto 2023</h3><p>Mutirão de mapeamento que resultou em 87 ordens de serviço abertas e 61 reparos concluídos em 6 meses.</p></article>
+        <article class="card"><span class="tag">Concluído</span><h3>Rede de Vigias</h3><p>Formação de 120 voluntários sentinelas distribuídos em 8 bairros para cobertura contínua de ocorrências.</p></article>
+      </div>
+    </section>
+
+    <section aria-labelledby="voluntariado-titulo" style="margin-top: 48px;">
+      <h2 class="section-title" id="voluntariado-titulo">Como se voluntariar</h2>
+      <p>Qualquer pessoa pode contribuir — não é necessário experiência técnica. Veja os perfis que buscamos e escolha como quer atuar:</p>
+      <div class="cards" style="margin-top: 24px;">
+        <article class="card">
+          <h3>🚶 Voluntário de campo</h3>
+          <p>Percorre ruas, fotografa ocorrências e registra no sistema. Ideal para quem tem disponibilidade nos fins de semana.</p>
+          <ul style="margin-top: 10px; padding-left: 18px;">
+            <li>Celular com câmera e GPS</li>
+            <li>Disponibilidade mínima de 2h/semana</li>
+            <li>Treinamento online gratuito</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>💻 Voluntário digital</h3>
+          <p>Analisa registros, valida ocorrências e acompanha o status de chamados abertos junto às prefeituras.</p>
+          <ul style="margin-top: 10px; padding-left: 18px;">
+            <li>Computador com acesso à internet</li>
+            <li>Disponibilidade mínima de 3h/semana</li>
+            <li>Perfil organizado e atento a prazos</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>🎓 Voluntário educador</h3>
+          <p>Ministra oficinas em escolas e associações de bairro sobre cidadania urbana e uso dos canais de denúncia.</p>
+          <ul style="margin-top: 10px; padding-left: 18px;">
+            <li>Habilidade de comunicação em grupo</li>
+            <li>Disponibilidade para deslocamento</li>
+            <li>Material didático fornecido pela ONG</li>
+          </ul>
+        </article>
+      </div>
+      <div style="margin-top: 28px; text-align: center;">
+        <p>Pronto para começar?</p>
+        <a href="cadastro.html" class="btn" style="margin-top: 12px;">Faça seu cadastro</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="doacao-titulo" style="margin-top: 48px;">
+      <h2 class="section-title" id="doacao-titulo">Campanhas de doação</h2>
+      <p>Sua doação financia equipamentos, treinamentos e a infraestrutura tecnológica que mantém nossos projetos funcionando.</p>
+      <div class="cards" style="margin-top: 24px;">
+        <article class="card">
+          <h3>📱 Kit do voluntário de campo</h3>
+          <p>Cada kit inclui colete de identificação, suporte de celular e carregador portátil para um voluntário por 1 ano.</p>
+          <strong style="display:block; margin-top: 10px; color: #1a6b3c;">Meta: R$ 8.000 — Arrecadado: R$ 5.340</strong>
+          <meter min="0" max="8000" value="5340" style="width:100%; margin-top:8px;" title="Progresso da campanha Kit do voluntário"></meter>
+        </article>
+        <article class="card">
+          <h3>🖥️ Servidor da API Cidadã</h3>
+          <p>Custeio anual da infraestrutura em nuvem que processa e distribui os dados de ocorrências para as prefeituras parceiras.</p>
+          <strong style="display:block; margin-top: 10px; color: #1a6b3c;">Meta: R$ 12.000 — Arrecadado: R$ 12.000</strong>
+          <meter min="0" max="12000" value="12000" style="width:100%; margin-top:8px;" title="Progresso da campanha Servidor"></meter>
+        </article>
+        <article class="card">
+          <h3>🏫 Oficinas nas escolas</h3>
+          <p>Impressão de materiais didáticos e deslocamento de educadores para 30 escolas públicas em 2025.</p>
+          <strong style="display:block; margin-top: 10px; color: #1a6b3c;">Meta: R$ 6.000 — Arrecadado: R$ 1.800</strong>
+          <meter min="0" max="6000" value="1800" style="width:100%; margin-top:8px;" title="Progresso da campanha Oficinas"></meter>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="como-doar-titulo" style="margin-top: 48px;">
+      <h2 class="section-title" id="como-doar-titulo">Como sua doação chega até nós</h2>
+      <ol class="steps-list">
+        <li>Escolha uma campanha acima e clique em <strong>Contribuir</strong></li>
+        <li>Selecione o valor e a forma de pagamento (Pix, boleto ou cartão)</li>
+        <li>Receba o comprovante e o relatório de uso dos recursos por e-mail</li>
+        <li>Acompanhe o progresso da campanha nesta página</li>
+      </ol>
+      <p style="margin-top: 16px;">A ViaSegura publica relatórios financeiros trimestrais abertos ao público. <a href="mailto:transparencia@viasegura.org.br" style="color:#1a6b3c;">Solicite o relatório completo.</a></p>
+    </section>
+
+    <section aria-labelledby="faq-titulo" style="margin-top: 48px;">
+      <h2 class="section-title" id="faq-titulo">Perguntas frequentes</h2>
+      <details style="margin-top: 16px; border: 1px solid #ddd; border-radius: 6px; padding: 14px;">
+        <summary style="cursor:pointer; font-weight:600;">Preciso ter conhecimento técnico para ser voluntário?</summary>
+        <p style="margin-top: 10px;">Não. A maioria das atividades exige apenas um celular e disposição. Oferecemos treinamento gratuito para todos os perfis.</p>
+      </details>
+      <details style="margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; padding: 14px;">
+        <summary style="cursor:pointer; font-weight:600;">Minha doação é dedutível do Imposto de Renda?</summary>
+        <p style="margin-top: 10px;">Ainda não somos qualificados como OSCIP, portanto a dedução fiscal não se aplica. Trabalhamos para obter essa certificação em 2025.</p>
+      </details>
+      <details style="margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; padding: 14px;">
+        <summary style="cursor:pointer; font-weight:600;">Posso atuar em mais de um projeto simultaneamente?</summary>
+        <p style="margin-top: 10px;">Sim. Após o cadastro, você pode indicar interesse em múltiplos projetos e nossa equipe fará a alocação conforme disponibilidade.</p>
+      </details>
+      <details style="margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; padding: 14px;">
+        <summary style="cursor:pointer; font-weight:600;">Como acompanho o uso da minha doação?</summary>
+        <p style="margin-top: 10px;">Enviamos relatórios por e-mail a cada trimestre e publicamos o balanço completo no site. Transparência é um valor inegociável para nós.</p>
+      </details>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 ViaSegura — ONG de Segurança Urbana. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

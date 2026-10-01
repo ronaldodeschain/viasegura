@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Componentes de Feedback — ViaSegura</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">🛣️ ViaSegura</a>
+    <button class="nav-toggle" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav-principal" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <div class="nav-item">
+        <a href="projetos.html" aria-expanded="false" aria-haspopup="true">Projetos</a>
+        <div class="dropdown" role="menu">
+          <a href="projetos.html#ativos-titulo" role="menuitem">Projetos em andamento</a>
+          <a href="projetos.html#concluidos-titulo" role="menuitem">Projetos concluídos</a>
+          <a href="projetos.html#voluntariado-titulo" role="menuitem">Como se voluntariar</a>
+          <a href="projetos.html#doacao-titulo" role="menuitem">Campanhas de doação</a>
+          <a href="projetos.html#faq-titulo" role="menuitem">Perguntas frequentes</a>
+        </div>
+      </div>
+      <a href="cadastro.html">Seja Voluntário</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Componentes de Feedback</h1>
+    <p>Demonstração visual de badges, alertas, toasts e modal do Design System ViaSegura.</p>
+  </section>
+
+  <main>
+
+    <section aria-labelledby="badges-titulo">
+      <h2 class="section-title" id="badges-titulo">Badges — Etiquetas semânticas</h2>
+      <p style="margin-bottom: var(--space-4);">Utilizados nos cards de projetos para categorizar status e tipo de iniciativa.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center;">
+        <span class="badge badge-success">✔ Concluído</span>
+        <span class="badge badge-warning">⏳ Em andamento</span>
+        <span class="badge badge-error">✖ Suspenso</span>
+        <span class="badge badge-info">ℹ Novo</span>
+        <span class="badge badge-neutral">Mapeamento</span>
+        <span class="badge badge-neutral">Educação</span>
+        <span class="badge badge-neutral">Tecnologia</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="alertas-titulo" style="margin-top: var(--space-10);">
+      <h2 class="section-title" id="alertas-titulo">Alertas — Mensagens contextuais</h2>
+      <p style="margin-bottom: var(--space-4);">Exibidos inline após ações do utilizador ou para comunicar estados do sistema.</p>
+
+      <div class="alert alert-success" role="alert">
+        <span class="alert-icon">✅</span>
+        <div><strong>Cadastro realizado com sucesso!</strong> Entraremos em contato em até 2 dias úteis.</div>
+        <button class="alert-close" aria-label="Fechar alerta" onclick="this.closest('.alert').remove()">✕</button>
+      </div>
+
+      <div class="alert alert-warning" role="alert">
+        <span class="alert-icon">⚠️</span>
+        <div><strong>Atenção: campanha encerrando em breve.</strong> A meta expira em 5 dias. Contribua agora.</div>
+        <button class="alert-close" aria-label="Fechar alerta" onclick="this.closest('.alert').remove()">✕</button>
+      </div>
+
+      <div class="alert alert-error" role="alert">
+        <span class="alert-icon">❌</span>
+        <div><strong>Erro ao enviar formulário.</strong> Verifique os campos obrigatórios e tente novamente.</div>
+        <button class="alert-close" aria-label="Fechar alerta" onclick="this.closest('.alert').remove()">✕</button>
+      </div>
+
+      <div class="alert alert-info" role="status">
+        <span class="alert-icon">ℹ️</span>
+        <div><strong>Sistema em manutenção programada.</strong> Indisponível no dia 20/07 das 2h às 4h.</div>
+        <button class="alert-close" aria-label="Fechar alerta" onclick="this.closest('.alert').remove()">✕</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="toast-titulo" style="margin-top: var(--space-10);">
+      <h2 class="section-title" id="toast-titulo">Toasts — Notificações não obstrutivas</h2>
+      <p style="margin-bottom: var(--space-4);">Aparecem no canto inferior direito e somem automaticamente após 4 segundos.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+        <button class="btn" onclick="showToast('success','✅','Ocorrência registrada!','Seu reporte foi enviado à prefeitura.')">Toast Sucesso</button>
+        <button class="btn" style="background:#f5a623;" onclick="showToast('warning','⚠️','Atenção','Preencha todos os campos antes de continuar.')">Toast Aviso</button>
+        <button class="btn" style="background:#c0392b;color:#fff;" onclick="showToast('error','❌','Falha no envio','Verifique sua conexão e tente novamente.')">Toast Erro</button>
+        <button class="btn" style="background:#2980b9;color:#fff;" onclick="showToast('info','ℹ️','Dica','Acompanhe seus reportes na área do voluntário.')">Toast Info</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="modal-titulo" style="margin-top: var(--space-10);">
+      <h2 class="section-title" id="modal-titulo">Modal — Confirmação de ação</h2>
+      <p style="margin-bottom: var(--space-4);">Utilizado para confirmar ações destrutivas ou exibir detalhes sem sair da página.</p>
+      <button class="btn" onclick="openModal('modal-demo')">Abrir Modal</button>
+    </section>
+
+  </main>
+
+  <div class="toast-region" aria-live="polite" aria-atomic="true" id="toast-region"></div>
+
+  <div class="modal-backdrop" id="modal-demo" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-dialog">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-titulo-dialog">Confirmar cancelamento</h2>
+        <button class="modal-close" aria-label="Fechar modal" onclick="closeModal('modal-demo')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja cancelar sua inscrição no projeto <strong>Mapa Vivo</strong>?</p>
+        <p style="margin-top: var(--space-3); color: var(--color-text-muted);">Esta ação não pode ser desfeita. Você poderá se inscrever novamente a qualquer momento.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeModal('modal-demo')">Cancelar</button>
+        <button class="btn" onclick="closeModal('modal-demo'); showToast('success','✅','Inscrição cancelada','Você foi removido do projeto Mapa Vivo.')">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 ViaSegura — ONG de Segurança Urbana. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>
