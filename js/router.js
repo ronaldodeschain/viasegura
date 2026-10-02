@@ -11,6 +11,23 @@ import { renderGrafico } from './charts.js';
 import { doacoes } from './data.js';
 
 const app = document.getElementById('app');
+const BASE = '/viasegura';
+
+// ── Resolve redirect do 404.html (/viasegura/?/projetos) ─────
+(function handleRedirect() {
+  const q = location.search;
+  if (!q) return;
+  const redirected = q.slice(1).replace(/&/, '?');
+  if (redirected.startsWith('/')) {
+    history.replaceState({ path: redirected }, '', BASE + redirected);
+  }
+})();
+
+// ── Normaliza pathname removendo o base path ─────────────────
+function stripBase(pathname) {
+  const p = pathname.replace(BASE, '') || '/';
+  return p.startsWith('/') ? p : '/' + p;
+}
 
 // ── Renderiza a view correspondente à rota ────────────────────
 function render(path) {
@@ -25,14 +42,14 @@ function render(path) {
 
 // ── Navega para uma rota sem recarregar a página ──────────────
 function navigate(path) {
-  history.pushState({ path }, '', path);
+  history.pushState({ path }, '', BASE + path);
   render(path);
 }
 
 // ── Marca o link ativo no nav ─────────────────────────────────
 function updateNavLinks(path) {
   document.querySelectorAll('.spa-link').forEach(a => {
-    const match = a.getAttribute('href') === path;
+    const match = stripBase(a.getAttribute('href')) === path;
     a.toggleAttribute('aria-current', match);
     if (match) a.setAttribute('aria-current', 'page');
     else a.removeAttribute('aria-current');
@@ -45,16 +62,17 @@ document.addEventListener('click', e => {
   if (!link) return;
   e.preventDefault();
   const path = link.getAttribute('href');
-  if (path !== location.pathname) navigate(path);
+  const route = path.replace(BASE, '') || '/';
+  if (route !== stripBase(location.pathname)) navigate(route);
 });
 
 // ── Trata navegação pelo botão Voltar/Avançar do browser ──────
 // Bug 4: estado inicial é null ao acessar rota diretamente via URL;
 // usa location.pathname como fallback antes de cair em '/'.
 window.addEventListener('popstate', e => {
-  render(e.state?.path ?? location.pathname ?? '/');
+  render(e.state?.path ?? stripBase(location.pathname));
 });
 
 // ── Rota inicial ao carregar o shell ─────────────────────────
 restaurarTema();
-render(location.pathname === '/app.html' ? '/' : location.pathname || '/');
+render(stripBase(location.pathname));

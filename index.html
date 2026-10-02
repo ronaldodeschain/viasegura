@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViaSegura — ONG de Segurança Urbana</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="/viasegura/" class="logo spa-link">🛣️ ViaSegura</a>
+    <button class="nav-toggle" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav-principal" aria-label="Navegação principal">
+      <a href="/viasegura/"          class="spa-link">Início</a>
+      <a href="/viasegura/projetos"  class="spa-link">Projetos</a>
+      <a href="/viasegura/cadastro"  class="spa-link">Seja Voluntário</a>
+      <button id="tema-toggle" aria-label="Alternar tema" style="background:none;border:none;cursor:pointer;color:var(--color-white);font-size:1.2rem;padding:var(--space-2)">🌙</button>
+    </nav>
+  </header>
+
+  <div id="app" role="main" aria-live="polite" aria-label="Conteúdo principal"></div>
+
+  <template id="tpl-stat">
+    <article class="card">
+      <h3 data-slot="valor"></h3>
+      <p  data-slot="desc"></p>
+    </article>
+  </template>
+
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+  <footer>
+    <p>© 2025 ViaSegura — ONG de Segurança Urbana. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script type="module" src="./js/router.js"></script>
+
+</body>
+</html>

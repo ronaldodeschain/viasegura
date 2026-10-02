@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    // Redireciona /viasegura/projetos → /viasegura/?/projetos
+    // O router.js lê o query string e navega para a rota correta.
+    const base = '/viasegura';
+    const path = location.pathname.replace(base, '') || '/';
+    const search = location.search ? location.search + '&' : '?';
+    location.replace(base + '/' + search + path.slice(1) + location.hash);
+  </script>
+</head>
+</html>
