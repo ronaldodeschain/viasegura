@@ -59,6 +59,8 @@ export function aplicarTema(tema) {
 export function restaurarTema() {
   const tema = carregar(KEYS.TEMA, 'light');
   aplicarTema(tema);
+  const btn = document.getElementById('tema-toggle');
+  if (btn) btn.textContent = tema === 'dark' ? '☀️' : '🌙';
   return tema;
 }
 

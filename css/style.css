@@ -326,7 +326,7 @@ nav > .nav-item > a:focus-visible {
   font-size: var(--font-size-md);
   max-width: 600px;
   margin: 0 auto var(--space-6);
-  opacity: 0.9;
+  color: rgba(255,255,255,0.92); /* valor fixo em vez de opacity para não afetar filhos */
 }
 
 /* ═══════════════════════════════════════════════
@@ -502,16 +502,40 @@ footer {
 
 /* ═══════════════════════════════════════════════
    TEMA ESCURO
+   Ativado por [data-tema="dark"] (botão) ou
+   por preferência do sistema (prefers-color-scheme).
+   Todas as variáveis garantem rácio ≥ 4.5:1 (WCAG AA).
    ═══════════════════════════════════════════════ */
+
+[data-tema="dark"],
+@media (prefers-color-scheme: dark) {
+  body:not([data-tema="light"]) {
+    --color-bg:           #121212;
+    --color-white:        #1e1e1e;
+    --color-text:         #e8e8e8;   /* #e8e8e8 / #1e1e1e → rácio 13.5:1 */
+    --color-text-muted:   #b8b8b8;   /* #b8b8b8 / #1e1e1e → rácio  6.5:1 */
+    --color-primary:      #4db87a;   /* verde claro / #1e1e1e → rácio  7.2:1 */
+    --color-primary-dark: #0d3d22;
+    --color-primary-light:#1a3a28;
+    --color-border:       #333333;
+    --color-border-input: #555555;
+    --color-accent:       #f5a623;   /* amarelo / #1e1e1e → rácio  8.1:1 */
+    --shadow-card:        0 2px 6px rgba(0,0,0,0.4);
+  }
+}
 
 [data-tema="dark"] {
   --color-bg:           #121212;
   --color-white:        #1e1e1e;
-  --color-text:         #e0e0e0;
-  --color-text-muted:   #aaaaaa;
-  --color-border:       #333333;
-  --color-border-input: #444444;
+  --color-text:         #e8e8e8;
+  --color-text-muted:   #b8b8b8;
+  --color-primary:      #4db87a;
+  --color-primary-dark: #0d3d22;
   --color-primary-light:#1a3a28;
+  --color-border:       #333333;
+  --color-border-input: #555555;
+  --color-accent:       #f5a623;
+  --shadow-card:        0 2px 6px rgba(0,0,0,0.4);
 }
 
 [data-tema="dark"] header,
@@ -519,14 +543,17 @@ footer {
   background: #0d3d22;
 }
 
-[data-tema="dark"] .card {
+[data-tema="dark"] .card,
+[data-tema="dark"] .form-card,
+[data-tema="dark"] .modal {
   background: #1e1e1e;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
 
-[data-tema="dark"] .form-card {
-  background: #1e1e1e;
-}
+/* Badges no dark: fundo escuro com texto claro para manter contraste */
+[data-tema="dark"] .badge-success { background: #1a3a28; color: #4db87a; }
+[data-tema="dark"] .badge-warning { background: #3a2e00; color: #f5c842; }
+[data-tema="dark"] .badge-error   { background: #3a1010; color: #f08080; }
+[data-tema="dark"] .badge-info    { background: #0a2040; color: #7ab8f5; }
 
 /* ═══════════════════════════════════════════════
    BADGES
